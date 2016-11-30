@@ -1,0 +1,78 @@
+- antes de instalar crear 10 gb de disco para poder añadirme mas merodia de swap
+
+
+
+
+- instalado freeBSD , instacion con el teclado esxtension 15, creados los tres usuarios igual que centOS
+
+-instalacion de XFCE
+  * primero hay que instalar Xorg para controlador de video
+
+  * pkg install xorg
+  * nano /etc/rc.conf
+    
+   hald_enable="YES"
+   dbus_enable="YES"
+  
+  * service hald start
+  * service dbus start
+
+
+ * pkg install xfce
+ * ( EN LA CARPETA DEL USUARIO NO ROOT)
+  nano .xinitrc
+  exec /urs/local/bin/startxfce4
+
+
+
+-instalar nano
+pkg install nano
+
+-añadir usuario a administrador
+
+wheel
+
+-configuracion de dchp de un interfaz
+
+dhclient [interface]
+
+-instalamos los plugins basicos
+pkg install xfce4-screenshooter-plugin xfce4-battery-plugin xfce4-volumed xfce4-power-manager xfce4-mount-plugin xfce4-mixer xfce4-datetime-plugin xfce4-xkb-plugin xdg-user-dirs
+
+sysctl kern.ipc.shm_allow_removed=1
+
+nano /etc/sysctl.conf
+
+kern.ipc.shm_allow_removed=1
+
+- cambiamos el idioma  del sistema a castellano y del teclado
+ * nano .login_conf
+
+	me:
+	:charset=ISO-8859-15:
+	:lang=es_ES.ISO8859-15:
+	:tc=default:
+
+ * nano .profile
+
+	LANG=es_ES.ISO8859-15; export LANG
+	MM_CHARSET=ISO-8859-15; export MM_CHARSET
+
+ * nano .xinitrc
+
+	LANG=es_ES.ISO8859-15; export LANG
+	setenv LANG es_ES.ISO8859-15
+        setxkbmap es
+
+
+- instalacion de la paqueteria
+
+instalamos firefox
+
+instalamos gcc
+
+instalamos JDK ( j2ee)
+
+instalamos netbens y le creamos un icono en el escritorio
+
+

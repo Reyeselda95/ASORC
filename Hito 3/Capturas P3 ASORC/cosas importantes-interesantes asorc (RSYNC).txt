@@ -1,0 +1,20 @@
+Lo del backup es uno en cada sistema?
+
+los tres en cada creo
+
+con que tengas instalado y configurado el rsyc, cambiar el tipo de backup es solo cambiar el comando que pones desde el remoto
+
+absoluto: rsync -av tu_usuario@tu_ip:/ruta/hasta/carpeta/ /ruta/donde/guardar/
+incremental: rsync -avvb tu_usuario@tu_ip:/ruta/hasta/carpeta/ /ruta/donde/guardar/
+sincronización: rsync -rtvu tu_usuario@tu_ip:/ruta/hasta/carpeta/ /ruta/donde/guardar/
+
+
+##Centos
+
+ [root@dlp ~]# rsync -avz --delete --exclude-from=/etc/rsync_exclude.lst /root/work/ www.server.world::backup
+# Add in cron if you'd like to run reguraly
+
+[root@dlp ~]# crontab -e
+# for example, run at 2:00 AM in a day
+
+00 02 * * * rsync -avz --delete --exclude-from=/etc/rsync_exclude.lst /root/work/ www.server.world::backup 

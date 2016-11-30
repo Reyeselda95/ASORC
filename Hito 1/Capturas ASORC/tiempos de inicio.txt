@@ -1,0 +1,7 @@
+FreeBSD:57 seg
+Debian: 52 seg
+Centos: 1 min 1 seg
+Windows Server: 1 min 8 seg
+Solaris: 2 min 5 seg
+
+specificacion software...

@@ -1,0 +1,7 @@
+ cd /usr/ports/emulators/qemu && make install clean
+
+seleccionar
+
+ KQEMU
+ SDL
+ CDROM_DMA

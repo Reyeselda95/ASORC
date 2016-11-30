@@ -1,0 +1,27 @@
+http://notallmicrosoft.blogspot.com.es/2014/07/install-firefox-30-latest-version-onto.html
+
+
+
+Install Firefox 30 (latest version) onto Oracle Solaris 11
+As you know Oracle Solaris 11 (11.1, 11.2) comes with Firefox 17 ESR and Mozilla 17 ESR, which is very good news. I have had no problems with this version until now when I upgrade our Oracle Database 12c to 12.1.0.2 and found out that I could no longer access the Enterprise Manager Database Express via the browser since you require Firefox 24+.
+
+Thankfully someone has compiled there our later version and placed them in mozilla contrib locations http://download.cdn.mozilla.net/pub/mozilla.org/firefox/releases. 
+ Download latest version firefox-30.0.en-US.opensolaris-i386-pkg.bz2 (sparc version available and a tar version is also available)
+Uncompress and install
+# bzip2 -d  firefox-30.0.en-US.opensolaris-i386-pkg.bz2
+# pkgadd -d firefox-30.0.en-US.opensolaris-i386-pkg
+ Firefox is now ready to run, but you need plugins. Copy your existing plugins from Solaris 11 install location. Note the new location
+# cd /usr/lib/firefox
+# find plugins -depth -print | cpio -pdm /opt/sfw/lib/firefox/browser
+If you haven't already got Adobe Flash installed you can get it from an archive file. http://fpdownload.macromedia.com/get/flashplayer/installers/archive/fp_11.2.202.228_archive.zip
+# unzip fp_11.2.202.228_archive.zip
+# bzip2 -dc fp_11.2.202.228_archive/11_2r202_223_32bit/flash_player_11_2r202_228_solaris_x86.tar.bz2| tar xf -
+# cp flash_player_solaris_11_2_202_223_x86/libflashplayer.so /opt/sfw/lib/firefox/browser/plugins
+That it away you go.
+# /opt/sfw/bin/firefox
+
+
+--------------------------------------------------------------
+
+
+http://adfinis-sygroup.ch/aoo-solaris-sparc
